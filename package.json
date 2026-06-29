@@ -1,0 +1,37 @@
+{
+  "name": "ss-038-edge-cms-lab",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "cf:build": "opennextjs-cloudflare build",
+    "preview": "opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && wrangler deploy",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@opennextjs/cloudflare": "latest",
+    "@tiptap/extension-image": "latest",
+    "@tiptap/extension-link": "latest",
+    "@tiptap/react": "latest",
+    "@tiptap/starter-kit": "latest",
+    "lucide-react": "latest",
+    "next": "^15.5.19",
+    "react": "19",
+    "react-dom": "19",
+    "wrangler": "latest"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "latest",
+    "@tailwindcss/postcss": "^4.3.1",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "^15.5.19",
+    "playwright": "latest",
+    "tailwindcss": "latest",
+    "typescript": "latest"
+  }
+}

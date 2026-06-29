@@ -1,0 +1,30 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ss-038-edge-cms-lab",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-06-29",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "ss-038-edge-cms-lab"
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "ss-038-edge-cms-lab-db",
+      "database_id": "4cf75acb-4b68-4b29-851c-85ff5996fe8c"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "MEDIA_BUCKET",
+      "bucket_name": "ss-038-edge-cms-lab-media"
+    }
+  ]
+}
