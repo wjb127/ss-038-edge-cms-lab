@@ -72,4 +72,6 @@ export type Comment = {
 export type CloudflareEnv = {
   DB: D1Database;
   MEDIA_BUCKET: R2Bucket;
+  // OpenNext ISR/revalidate 캐시 저장소(런타임에서 OpenNext가 직접 사용)
+  NEXT_INC_CACHE_R2_BUCKET?: R2Bucket;
 };

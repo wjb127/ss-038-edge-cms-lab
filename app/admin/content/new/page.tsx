@@ -1,17 +1,19 @@
 import { AdminShell } from "@/components/AdminShell";
 import { Editor } from "@/components/Editor";
+import { FormError } from "@/components/FormError";
 import { media, taxonomies, terms } from "@/lib/cms";
 import type { Taxonomy, Term } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
 
-export default async function NewContentPage({ searchParams }: { searchParams: Promise<{ type?: string }> }) {
-  const { type = "post" } = await searchParams;
+export default async function NewContentPage({ searchParams }: { searchParams: Promise<{ type?: string; error?: string }> }) {
+  const { type = "post", error } = await searchParams;
   const [allMedia, allTaxonomies, allTerms] = await Promise.all([media(), taxonomies(), terms()]);
   return (
     <AdminShell access="write">
     <div className="grid gap-5">
       <h1 className="text-3xl font-semibold">New {type}</h1>
+      <FormError message={error} />
       <form action="/api/content" method="post" className="grid gap-4">
         <input type="hidden" name="type" value={type} />
         <ContentFields taxonomies={allTaxonomies} terms={allTerms} type={type} />

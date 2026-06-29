@@ -20,6 +20,7 @@
     "next": "^15.5.19",
     "react": "19",
     "react-dom": "19",
+    "sanitize-html": "^2.17.5",
     "wrangler": "latest"
   },
   "devDependencies": {
@@ -28,6 +29,7 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "@types/sanitize-html": "^2.16.1",
     "eslint": "latest",
     "eslint-config-next": "^15.5.19",
     "playwright": "latest",

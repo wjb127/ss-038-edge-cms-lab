@@ -25,6 +25,10 @@
     {
       "binding": "MEDIA_BUCKET",
       "bucket_name": "ss-038-edge-cms-lab-media"
+    },
+    {
+      "binding": "NEXT_INC_CACHE_R2_BUCKET",
+      "bucket_name": "ss-038-edge-cms-lab-cache"
     }
   ]
 }

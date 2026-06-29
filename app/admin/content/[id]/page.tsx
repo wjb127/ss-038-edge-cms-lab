@@ -1,12 +1,20 @@
 import { AdminShell } from "@/components/AdminShell";
 import { notFound } from "next/navigation";
 import { Editor } from "@/components/Editor";
+import { FormError } from "@/components/FormError";
 import { media, postById, postTerms, taxonomies, terms } from "@/lib/cms";
 
 export const dynamic = "force-dynamic";
 
-export default async function EditContentPage({ params }: { params: Promise<{ id: string }> }) {
+export default async function EditContentPage({
+  params,
+  searchParams
+}: {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ error?: string }>;
+}) {
   const { id } = await params;
+  const { error } = await searchParams;
   const [post, allMedia, allTaxonomies, allTerms, attached] = await Promise.all([postById(id), media(), taxonomies(), terms(), postTerms(id)]);
   if (!post) notFound();
   const attachedIds = new Set(attached.map((term) => term.id));
@@ -14,6 +22,7 @@ export default async function EditContentPage({ params }: { params: Promise<{ id
     <AdminShell access="write">
     <div className="grid gap-5">
       <h1 className="text-3xl font-semibold">Edit {post.title}</h1>
+      <FormError message={error} />
       <form action={`/api/content/${post.id}`} method="post" className="grid gap-4">
         <label className="field">
           <span>Title</span>

@@ -9,7 +9,9 @@ export async function POST(request: Request) {
   const form = await request.formData();
   await db().batch([
     db().prepare("INSERT OR REPLACE INTO settings(key, value) VALUES ('site_title', ?)").bind(required(form.get("site_title"), "site_title")),
-    db().prepare("INSERT OR REPLACE INTO settings(key, value) VALUES ('site_description', ?)").bind(form.get("site_description")?.toString() ?? "")
+    db().prepare("INSERT OR REPLACE INTO settings(key, value) VALUES ('site_description', ?)").bind(form.get("site_description")?.toString() ?? ""),
+    db().prepare("INSERT OR REPLACE INTO settings(key, value) VALUES ('site_url', ?)").bind((form.get("site_url")?.toString() ?? "").trim().replace(/\/+$/, "")),
+    db().prepare("INSERT OR REPLACE INTO settings(key, value) VALUES ('api_token', ?)").bind((form.get("api_token")?.toString() ?? "").trim())
   ]);
   redirect("/admin/settings");
 }

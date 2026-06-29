@@ -19,3 +19,7 @@ e2e-artifacts
 *.local
 *.log
 tsconfig.tsbuildinfo
+memory/
+
+# 구현 노트(커밋 제외)
+implementation-notes.html
