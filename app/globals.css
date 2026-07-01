@@ -89,8 +89,46 @@ button {
   line-height: 1.75;
 }
 
+.prose h2 {
+  margin-top: 36px;
+  margin-bottom: 12px;
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+.prose p {
+  margin: 12px 0;
+  color: #2d3530;
+}
+
+.prose ul,
+.prose ol {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0;
+  padding-left: 24px;
+}
+
+.prose li {
+  padding-left: 4px;
+}
+
 .prose img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
+  margin: 24px auto 32px;
+}
+
+.prose a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--accent);
+  color: white;
+  padding: 10px 16px;
+  font-weight: 700;
 }
